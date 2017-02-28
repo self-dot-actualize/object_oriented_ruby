@@ -22,6 +22,7 @@ puts
 # Using instances of classes
 class Employee
   attr_reader :first_name, :last_name, :active
+  attr_writer :active
 
   def initialize(input_first_name, input_last_name, input_salary, input_active)
     @first_name = input_first_name
@@ -36,10 +37,6 @@ class Employee
 
   def give_annual_raise
     @salary = 1.05 * @salary
-  end
-
-  def active=(input_active)
-    @active = input_active
   end
 end
 
