@@ -51,3 +51,8 @@ puts employee2.active
 employee2.active = false
 puts employee2.active
 puts
+
+
+numbers = [1, 2, 4, 2]
+doubled_numbers = numbers.map { |number| number * 2 }
+p doubled_numbers
