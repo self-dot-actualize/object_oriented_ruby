@@ -1,3 +1,17 @@
+module EmailReportable
+  def send_report
+    puts "Sending email..."
+    # use email sending library
+    puts "Email sent!"
+  end
+
+  def receive_report
+    puts "Receiving report..."
+    # write some code
+    puts "Email received!"
+  end
+end
+
 class Employee
   attr_reader :first_name, :last_name, :active
   attr_writer :active
@@ -19,6 +33,8 @@ class Employee
 end
 
 class Manager < Employee
+  include EmailReportable
+
   def initialize(input_options)
     super
     @employees = input_options[:employees]
@@ -35,22 +51,13 @@ class Manager < Employee
       employee.active = false
     end
   end
-
-  def send_report
-    puts "Sending email..."
-    # use email sending library
-    puts "Email sent!"
-  end
 end
 
 class Intern < Employee
-  def send_report
-    puts "Sending email..."
-    # use email sending library
-    puts "Email sent!"
-  end
+  include EmailReportable
 end
 
 intern = Intern.new(first_name: "Adrienne", last_name: "Lowe", salary: 50000, active: true)
 intern.print_info
 intern.send_report
+intern.receive_report
